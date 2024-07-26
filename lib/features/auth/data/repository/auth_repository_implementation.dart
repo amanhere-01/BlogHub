@@ -1,5 +1,5 @@
 import 'package:blog_hub/core/error/failures.dart';
-import 'package:blog_hub/features/auth/data/datasources/auth_supabase_data_source.dart';
+import 'package:blog_hub/features/auth/data/datasources/auth_remote_data_source.dart';
 import 'package:fpdart/src/either.dart';
 import 'package:supabase_flutter/supabase_flutter.dart' as sb;
 import '../../../../core/common/entities/user.dart';
@@ -7,7 +7,7 @@ import '../../domain/repository/auth_repository.dart';
 
 
 class AuthRepositoryImplementation implements AuthRepository{
-  final AuthSupabaseDataSource supabaseDataSource;
+  final AuthRemoteDataSource supabaseDataSource;
   const AuthRepositoryImplementation(this.supabaseDataSource);
 
   @override
