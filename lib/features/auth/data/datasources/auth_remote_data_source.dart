@@ -1,7 +1,7 @@
 import 'package:blog_hub/features/auth/data/models/user_model.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-abstract interface class AuthSupabaseDataSource{
+abstract interface class AuthRemoteDataSource{
 
   Session? get currentSession;
   Future<UserModel> signUp({
@@ -18,9 +18,9 @@ abstract interface class AuthSupabaseDataSource{
   Future<UserModel?> currentUserData();
 }
 
-class AuthSupabaseDataSourceImplementation implements AuthSupabaseDataSource{
+class AuthRemoteDataSourceImplementation implements AuthRemoteDataSource{
   final SupabaseClient supabaseClient;
-  const AuthSupabaseDataSourceImplementation(this.supabaseClient);
+  const AuthRemoteDataSourceImplementation(this.supabaseClient);
 
   @override
   Session? get currentSession => supabaseClient.auth.currentSession;
