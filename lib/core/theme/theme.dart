@@ -14,8 +14,8 @@ class AppTheme{
     appBarTheme: const AppBarTheme(
       backgroundColor: AppPallet.transparentColor
     ),
-    chipTheme: const ChipThemeData(
-      color: WidgetStatePropertyAll(AppPallet.backgroundColor),
+    chipTheme:  ChipThemeData(
+      color: WidgetStatePropertyAll(AppPallet.black2),
       side: BorderSide.none
     ),
     inputDecorationTheme: InputDecorationTheme(
@@ -26,4 +26,6 @@ class AppTheme{
       errorBorder: _borderDesign(AppPallet.errorColor)
     )
   );
+
+
 }
