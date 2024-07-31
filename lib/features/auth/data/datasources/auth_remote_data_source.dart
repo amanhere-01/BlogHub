@@ -1,5 +1,8 @@
 import 'package:blog_hub/features/auth/data/models/user_model.dart';
+import 'package:fpdart/fpdart.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+
+import '../../../../core/error/failures.dart';
 
 abstract interface class AuthRemoteDataSource{
 
@@ -36,6 +39,8 @@ class AuthRemoteDataSourceImplementation implements AuthRemoteDataSource{
         throw Exception('Sign-up failed: User is null. ');
       }
       return UserModel.fromJson(response.user!.toJson());
+    } on AuthException catch(e){
+      throw Exception(e.message);
     } catch(e){
       throw Exception(e.toString());
     }
@@ -55,7 +60,9 @@ class AuthRemoteDataSourceImplementation implements AuthRemoteDataSource{
         throw Exception('Sign-up failed: User is null. ');
       }
       return UserModel.fromJson(response.user!.toJson());
-    } catch(e){
+    } on AuthException catch(e){
+      throw Exception(e.message);
+    }  catch(e){
       throw Exception(e.toString());
     }
   }
